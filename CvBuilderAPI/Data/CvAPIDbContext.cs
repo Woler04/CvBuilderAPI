@@ -10,5 +10,6 @@ namespace CvBuilderAPI.Data
 
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Skill> Skills { get; set; }
     }
 }

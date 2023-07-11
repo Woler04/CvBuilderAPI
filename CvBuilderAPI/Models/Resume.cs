@@ -13,7 +13,13 @@ namespace CvBuilderAPI.Models
 
         [ForeignKey("User")]
         public int? UserId { get; set; }
-        public virtual User? User { get; set; } 
+        public virtual User? User { get; set; }
+        public ICollection<Skill> Skills { get; set; }
+
+        public Resume()
+        {
+            Skills = new List<Skill>();
+        }
 
     }
 }
