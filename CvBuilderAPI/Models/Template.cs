@@ -2,19 +2,19 @@
 
 namespace CvBuilderAPI.Models
 {
-    public class Skill
+    public class Template
     {
         [Key]
-        public int SkillId { get; set; }
-        public string SkillName { get; set; }
+        public int TemplateId { get; set; }
+        public string TemplateName { get; set; }
+        public string TemplateFilePath { get; set; }
+
 
         public ICollection<Resume?> Resumes { get; set; }
 
-        public Skill()
+        public Template()
         {
             Resumes = new List<Resume?>();
         }
     }
 }
-
-//Update-Database "20230711082803_skills"

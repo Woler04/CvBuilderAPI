@@ -4,6 +4,7 @@ using CvBuilderAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvBuilderAPI.Migrations
 {
     [DbContext(typeof(CvAPIDbContext))]
-    partial class CvAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230711092140_oopsie")]
+    partial class oopsie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,42 +87,6 @@ namespace CvBuilderAPI.Migrations
                     b.HasIndex("ResumeId");
 
                     b.ToTable("Educations");
-                });
-
-            modelBuilder.Entity("CvBuilderAPI.Models.Experience", b =>
-                {
-                    b.Property<int>("ExperienceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExperienceId"), 1L, 1);
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Position")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ResumeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ExperienceId");
-
-                    b.HasIndex("ResumeId");
-
-                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("CvBuilderAPI.Models.Language", b =>
@@ -369,17 +335,6 @@ namespace CvBuilderAPI.Migrations
                 {
                     b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
                         .WithMany("Educations")
-                        .HasForeignKey("ResumeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Resume");
-                });
-
-            modelBuilder.Entity("CvBuilderAPI.Models.Experience", b =>
-                {
-                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
-                        .WithMany()
                         .HasForeignKey("ResumeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
