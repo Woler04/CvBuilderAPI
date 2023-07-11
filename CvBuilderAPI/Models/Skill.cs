@@ -16,5 +16,3 @@ namespace CvBuilderAPI.Models
         }
     }
 }
-
-//Update-Database "20230711082803_skills"

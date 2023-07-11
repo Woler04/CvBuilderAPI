@@ -9,7 +9,6 @@ namespace CvBuilderAPI.Models
         public string LanguageName { get; set; }
         public string Level { get; set; }
 
-
         public ICollection<Resume?> Resumes { get; set; }
 
         public Language()

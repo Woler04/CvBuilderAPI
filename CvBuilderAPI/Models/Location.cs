@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 
 namespace CvBuilderAPI.Models
 {
@@ -9,12 +11,11 @@ namespace CvBuilderAPI.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-
-        public ICollection<Resume?> Resumes { get; set; }
+        public ICollection<Resume?> Resumes {get; set; }
 
         public Location()
         {
-            Resumes = new List<Resume?>();
+            Resumes = new List<Resume>();
         }
     }
 }

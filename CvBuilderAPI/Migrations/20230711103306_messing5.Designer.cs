@@ -4,6 +4,7 @@ using CvBuilderAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvBuilderAPI.Migrations
 {
     [DbContext(typeof(CvAPIDbContext))]
-    partial class CvAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230711103306_messing5")]
+    partial class messing5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,7 +166,22 @@ namespace CvBuilderAPI.Migrations
 
                     b.HasKey("LocationId");
 
-                    b.ToTable("Locations");
+                    b.ToTable("Location");
+                });
+
+            modelBuilder.Entity("CvBuilderAPI.Models.LocationResume", b =>
+                {
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResumeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocationId", "ResumeId");
+
+                    b.HasIndex("ResumeId");
+
+                    b.ToTable("LocationResume");
                 });
 
             modelBuilder.Entity("CvBuilderAPI.Models.PersonalInfo", b =>
@@ -305,21 +322,6 @@ namespace CvBuilderAPI.Migrations
                     b.ToTable("LanguageResume");
                 });
 
-            modelBuilder.Entity("LocationResume", b =>
-                {
-                    b.Property<int>("LocationsLocationId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ResumesResumeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LocationsLocationId", "ResumesResumeId");
-
-                    b.HasIndex("ResumesResumeId");
-
-                    b.ToTable("LocationResume");
-                });
-
             modelBuilder.Entity("ResumeSkill", b =>
                 {
                     b.Property<int>("ResumesResumeId")
@@ -368,6 +370,25 @@ namespace CvBuilderAPI.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CvBuilderAPI.Models.LocationResume", b =>
+                {
+                    b.HasOne("CvBuilderAPI.Models.Location", "Location")
+                        .WithMany("LocationResume")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Resume");
+                });
+
             modelBuilder.Entity("CvBuilderAPI.Models.Resume", b =>
                 {
                     b.HasOne("CvBuilderAPI.Models.User", "User")
@@ -382,21 +403,6 @@ namespace CvBuilderAPI.Migrations
                     b.HasOne("CvBuilderAPI.Models.Language", null)
                         .WithMany()
                         .HasForeignKey("LanguagesLanguageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CvBuilderAPI.Models.Resume", null)
-                        .WithMany()
-                        .HasForeignKey("ResumesResumeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LocationResume", b =>
-                {
-                    b.HasOne("CvBuilderAPI.Models.Location", null)
-                        .WithMany()
-                        .HasForeignKey("LocationsLocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -435,6 +441,11 @@ namespace CvBuilderAPI.Migrations
                         .HasForeignKey("TemplatesTemplateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CvBuilderAPI.Models.Location", b =>
+                {
+                    b.Navigation("LocationResume");
                 });
 
             modelBuilder.Entity("CvBuilderAPI.Models.Resume", b =>

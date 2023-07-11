@@ -19,5 +19,10 @@ namespace CvBuilderAPI.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Template> Templates { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //something to add here but cant quite make it
+        }
     }
+
 }

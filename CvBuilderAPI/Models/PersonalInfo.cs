@@ -14,6 +14,5 @@ namespace CvBuilderAPI.Models
 
         [ForeignKey("Resume")]
         public int ResumeId { get; set; }
-        public virtual Resume? Resume { get; set; }
     }
 }
