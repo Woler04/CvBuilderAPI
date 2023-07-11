@@ -14,7 +14,7 @@ namespace CvBuilderAPI.Models
 
         public User()
         {
-            Resumes = new List<Resume>();
+            Resumes = new List<Resume?>();
         }
     }
 }

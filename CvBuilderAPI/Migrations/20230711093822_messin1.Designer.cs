@@ -4,6 +4,7 @@ using CvBuilderAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvBuilderAPI.Migrations
 {
     [DbContext(typeof(CvAPIDbContext))]
-    partial class CvAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230711093822_messin1")]
+    partial class messin1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,6 +120,8 @@ namespace CvBuilderAPI.Migrations
 
                     b.HasKey("ExperienceId");
 
+                    b.HasIndex("ResumeId");
+
                     b.ToTable("Experiences");
                 });
 
@@ -195,6 +199,8 @@ namespace CvBuilderAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("PersonalinfoId");
+
+                    b.HasIndex("ResumeId");
 
                     b.ToTable("PesronalInfos");
                 });
@@ -361,11 +367,35 @@ namespace CvBuilderAPI.Migrations
 
             modelBuilder.Entity("CvBuilderAPI.Models.Education", b =>
                 {
-                    b.HasOne("CvBuilderAPI.Models.Resume", null)
+                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
                         .WithMany("Educations")
                         .HasForeignKey("ResumeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Resume");
+                });
+
+            modelBuilder.Entity("CvBuilderAPI.Models.Experience", b =>
+                {
+                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Resume");
+                });
+
+            modelBuilder.Entity("CvBuilderAPI.Models.PersonalInfo", b =>
+                {
+                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Resume");
                 });
 
             modelBuilder.Entity("CvBuilderAPI.Models.Resume", b =>
