@@ -8,11 +8,6 @@ namespace CvBuilderAPI.Models
         public int SkillId { get; set; }
         public string SkillName { get; set; }
 
-        public ICollection<Resume?> Resumes { get; set; }
-
-        public Skill()
-        {
-            Resumes = new List<Resume?>();
-        }
+        public List<ResumeSkill?> Resumes { get; set; } = new List<ResumeSkill?>();
     }
 }

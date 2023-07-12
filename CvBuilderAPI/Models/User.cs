@@ -10,11 +10,6 @@ namespace CvBuilderAPI.Models
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public virtual ICollection<Resume?> Resumes { get; set; }
-
-        public User()
-        {
-            Resumes = new List<Resume?>();
-        }
+        public virtual List<Resume?> Resumes { get; set; } = new List<Resume?>();
     }
 }
