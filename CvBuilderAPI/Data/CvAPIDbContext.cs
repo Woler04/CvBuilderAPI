@@ -21,8 +21,42 @@ namespace CvBuilderAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //something to add here but cant quite make it
+            OnBuildLocationResume(modelBuilder);
+            OnBuildLanguageResume(modelBuilder);
         }
+
+        private void OnBuildLocationResume(ModelBuilder modelBuilder) {
+            modelBuilder.Entity<LocationResume>()
+                    .HasKey(lr => new { lr.ResumeId, lr.LocationId });
+
+            modelBuilder.Entity<LocationResume>()
+                .HasOne(lr => lr.Location)
+                .WithMany(lr => lr.Resumes)
+                .HasForeignKey(lr => lr.ResumeId);
+
+            modelBuilder.Entity<LocationResume>()
+                .HasOne(lr => lr.Resume)
+                .WithMany(lr => lr.Locations)
+                .HasForeignKey(lr => lr.LocationId);
+        }
+
+        private void OnBuildLanguageResume(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<LanguageResume>()
+                    .HasKey(lar => new { lar.ResumeId, lar.LanguageId });
+
+            modelBuilder.Entity<LanguageResume>()
+                .HasOne(lar => lar.Language)
+                .WithMany(lar => lar.Resumesas)
+                .HasForeignKey(lar => lar.ResumeId);
+
+            modelBuilder.Entity<LanguageResume>()
+                .HasOne(lar => lar.Resume)
+                .WithMany(lar => lar.Languages)
+                .HasForeignKey(lar => lar.LanguageId);
+
+        }
+
     }
 
 }
