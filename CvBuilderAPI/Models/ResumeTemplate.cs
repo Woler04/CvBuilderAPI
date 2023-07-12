@@ -6,7 +6,7 @@ namespace CvBuilderAPI.Models
     {
         [ForeignKey("Template")]
         public int? TemplateId { get; set; }
-        public Location? Template { get; set; }
+        public Template? Template { get; set; }
 
         [ForeignKey("Resume")]
         public int? ResumeId { get; set; }

@@ -23,6 +23,7 @@ namespace CvBuilderAPI.Data
         {
             OnBuildLocationResume(modelBuilder);
             OnBuildLanguageResume(modelBuilder);
+            OnBuildResumeTemplate(modelBuilder);
         }
 
         private void OnBuildLocationResume(ModelBuilder modelBuilder) {
@@ -47,14 +48,29 @@ namespace CvBuilderAPI.Data
 
             modelBuilder.Entity<LanguageResume>()
                 .HasOne(lar => lar.Language)
-                .WithMany(lar => lar.Resumesas)
+                .WithMany(lar => lar.Resumes)
                 .HasForeignKey(lar => lar.ResumeId);
 
             modelBuilder.Entity<LanguageResume>()
                 .HasOne(lar => lar.Resume)
                 .WithMany(lar => lar.Languages)
                 .HasForeignKey(lar => lar.LanguageId);
+        }
 
+        private void OnBuildResumeTemplate(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ResumeTemplate>()
+                    .HasKey(tr => new { tr.ResumeId, tr.TemplateId });
+
+            modelBuilder.Entity<ResumeTemplate>()
+                .HasOne(tr => tr.Template)
+                .WithMany(tr => tr.Resumes)
+                .HasForeignKey(tr => tr.ResumeId);
+
+            modelBuilder.Entity<ResumeTemplate>()
+                .HasOne(tr => tr.Resume)
+                .WithMany(tr => tr.Templates)
+                .HasForeignKey(tr => tr.TemplateId);
         }
 
     }
