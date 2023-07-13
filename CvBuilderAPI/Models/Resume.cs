@@ -14,12 +14,12 @@ namespace CvBuilderAPI.Models
         [ForeignKey("User")]
         public int? UserId { get; set; }
         public virtual User? User { get; set; } 
-        public ICollection<Skill?> Skills { get; set; } = new List<Skill>();
-        public ICollection<LocationResume?> Locations { get; set; } = new List<LocationResume>();
-        public ICollection<Certificate?> Certificates { get; set; } = new List<Certificate>();
-        public ICollection<Education?> Educations { get; set; } = new List<Education>();
-        public ICollection<LanguageResume?> Languages { get; set; } = new List<LanguageResume>();
-        public ICollection<ResumeTemplate?> Templates { get; set; } = new List<ResumeTemplate>();
+        public List<ResumeSkill?> Skills { get; set; } = new List<ResumeSkill>();
+        public List<LocationResume?> Locations { get; set; } = new List<LocationResume>();
+        public List<Certificate?> Certificates { get; set; } = new List<Certificate>();
+        public List<Education?> Educations { get; set; } = new List<Education>();
+        public List<LanguageResume?> Languages { get; set; } = new List<LanguageResume>();
+        public List<ResumeTemplate?> Templates { get; set; } = new List<ResumeTemplate>();
 
     }
 }

@@ -4,6 +4,7 @@ using CvBuilderAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvBuilderAPI.Migrations
 {
     [DbContext(typeof(CvAPIDbContext))]
-    partial class CvAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230712212115_uwu")]
+    partial class uwu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,8 +269,6 @@ namespace CvBuilderAPI.Migrations
 
                     b.HasKey("ResumeId", "SkillId");
 
-                    b.HasIndex("SkillId");
-
                     b.ToTable("ResumeSkill");
                 });
 
@@ -417,15 +417,15 @@ namespace CvBuilderAPI.Migrations
 
             modelBuilder.Entity("CvBuilderAPI.Models.ResumeSkill", b =>
                 {
-                    b.HasOne("CvBuilderAPI.Models.Skill", "Skill")
-                        .WithMany("Resumes")
+                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
+                        .WithMany("Skills")
                         .HasForeignKey("ResumeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CvBuilderAPI.Models.Resume", "Resume")
-                        .WithMany("Skills")
-                        .HasForeignKey("SkillId")
+                    b.HasOne("CvBuilderAPI.Models.Skill", "Skill")
+                        .WithMany("Resumes")
+                        .HasForeignKey("ResumeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

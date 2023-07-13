@@ -9,6 +9,6 @@ namespace CvBuilderAPI.Models
         public string TemplateName { get; set; }
         public string TemplateFilePath { get; set; }
 
-        public ICollection<ResumeTemplate?> Resumes { get; set; } = new List<ResumeTemplate?>();
+        public List<ResumeTemplate?> Resumes { get; set; } = new List<ResumeTemplate?>();
     }
 }
