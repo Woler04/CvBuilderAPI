@@ -260,7 +260,7 @@ Update a specific certificate
 
 PUT /api/Certificate/{certificateId}
 
-Search for certificates using a keyword
+Search for resume using a keyword for certficate title (that can be used for sorting out from reqired skill certificate)
 
 GET /api/Certificate/search/{keyword}
 
@@ -342,7 +342,7 @@ Delete a skill
 
 DELETE /api/Skill/{skillId}
 
-Get resumes associated with a skill
+Get resumes associated with a skill (can be used for sorting out specific required skill)
 
 GET /api/Skill/{skillId}/resumes
 
@@ -385,7 +385,7 @@ Delete a specific location
 
 DELETE /api/Location/{locationId}
 
-Search for locations using a keyword
+Search for resumes using a keyword (City or State or Country)
 
 GET /search/{keyword}
 
