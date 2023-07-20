@@ -12,6 +12,7 @@ After downloading or cloning and opening the solution you need to
 >   "DefaultConnection": "Data Source=YOURCONNECTIONSTRING"
 > }
 >
+
 2. Then run the "update-database" command in the Package Manager Console so the migrations be applied
 3. There is no seed for the database BUT that is an excellent opportunity to try reaching an endpoint
 
