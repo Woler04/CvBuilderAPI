@@ -205,11 +205,127 @@ Remove association between a skill and a resume
 
 DELETE /api/Skill/{skillId}&&{resumeId}
 
+### Personal Info
+Personal Info DTO
 
+Get all personal info
 
+GET /api/PersonalInfo
 
+Create new personal info
 
+POST /api/PersonalInfo
 
+Get specific personal info
+
+GET /api/PersonalInfo/{personalInfoId}
+
+Update specific personal info
+
+PUT /api/PersonalInfo/{personalInfoId}
+
+Delete specific personal info
+
+DELETE /api/PersonalInfo/{personalInfoId}
+
+Update personal info for a resume
+
+PUT /api/PersonalInfo/{resumeId}
+
+### Location
+Get all locations
+
+GET /api/Location
+
+Create a new location
+
+POST /api/Location
+
+Get a specific location
+
+GET /api/Location/{locationId}
+
+Update a specific location
+
+PUT /api/Location/{locationId}
+
+Delete a specific location
+
+DELETE /api/Location/{locationId}
+
+Search for locations using a keyword
+
+GET /search/{keyword}
+
+Get resumes associated with a location
+
+GET /api/Location/{locationId}/resumes
+
+Associate a location with a resume
+
+POST /api/Location/{locationId}&&{resumeId}
+
+Remove association between a location and a resume
+
+DELETE /api/Location/{locationId}&&{resumeId}
+
+### Language
+Language DTO
+
+Get all languages
+
+GET /api/Language
+
+Create a new language
+
+POST /api/Language
+
+Get a specific language
+
+GET /api/Language/{languageId}
+
+Update a specific language
+
+PUT /api/Language/{languageId}
+
+Delete a specific language
+
+DELETE /api/Language/{languageId}
+
+Get resumes associated with a language
+
+GET /{languageId}/resumes
+
+Associate a language with a resume
+
+POST /api/Language/{languageId}&&{resumeId}
+
+Remove association between a language and a resume
+
+DELETE /api/Language/{languageId}&&{resumeId}
+
+### Experience
+Experience DTO
+
+Get all experiences
+
+GET /api/Experience
+
+Create a new experience
+
+POST /api/Experience
+
+Get a specific experience
+
+GET /api/Experience/{experienceId}
+
+Update a specific experience
+
+PUT /api/Experience/{experienceId}
+
+Delete a specific experience
+
+DELETE /api/Experience/{experienceId}
 
 
 
