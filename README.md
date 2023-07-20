@@ -327,8 +327,55 @@ Delete a specific experience
 
 DELETE /api/Experience/{experienceId}
 
+### Education
+Education DTO
 
+Get all educations
 
+GET /api/Education
+
+Create a new education
+
+POST /api/Education
+
+Get a specific education
+
+GET /api/Education/{educationId}
+
+Update a specific education
+
+PUT /api/Education/{educationId}
+
+Delete a specific education
+
+DELETE /api/Education/{educationId}
+
+### Certificate 
+Certificate DTo
+
+Get all certificates
+
+GET /api/Certificate
+
+Create a new certificate
+
+POST /api/Certificate
+
+Get a specific certificate
+
+GET /api/Certificate/{certificateId}
+
+Update a specific certificate
+
+PUT /api/Certificate/{certificateId}
+
+Search for certificates using a keyword
+
+GET /api/Certificate/search/{keyword}
+
+Delete a specific certificate
+
+DELETE /api/Certificate/{certificateId}
 
 
 
