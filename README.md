@@ -30,9 +30,76 @@ password	string
 nullable: true
 }
 ```
-Get all users
->https://localhost:port/api/User
-``` curl -X 'GET' \
-  'https://localhost:7142/api/User' \
-  -H 'accept: text/plain'
+GET /api/User - Get all users.
+
+POST /api/User - Create a new user.
+
+GET /api/User/{userId} - Get a specific user.
+
+PUT /api/User/{userId} - Update a user.
+
+DELETE /api/User/{userId} - Delete a user.
+
+GET /api/User/{userId}/resumes - Get user's resumes.
+
+### Resume
+Resume DTO
 ```
+{
+resumeId	integer($int32)
+title	string
+nullable: true
+creationTime	string($date-time)
+lastModifiedTime	string($date-time)
+}
+```
+GET /api/Resume - Get all resumes.
+
+POST /api/Resume - Create a new resume.
+
+GET /api/Resume/{resumeId} - Get a specific resume.
+
+PUT /api/Resume/{resumeId} - Update a resume.
+
+DELETE /api/Resume/{resumeId} - Delete a resume.
+
+GET /api/Resume/{resumeId}/user - Get resume's associated user.
+
+GET /api/Resume/{resumeId}/skills - Get resume's skills.
+
+GET /api/Resume/{resumeId}/template - Get resume's template.
+
+GET /api/Resume/{resumeId}/locations - Get resume's locations.
+
+GET /api/Resume/{resumeId}/languages - Get resume's languages.
+
+GET /api/Resume/{resumeId}/certificates - Get resume's certificates.
+
+GET /api/Resume/{resumeId}/personalInfo - Get resume's personal info.
+
+GET /api/Resume/{resumeId}/educations - Get resume's educations.
+
+GET /api/Resume/{resumeId}/experiences - Get resume's experiences.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
