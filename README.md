@@ -30,17 +30,29 @@ password	string
 nullable: true
 }
 ```
->GET /api/User - Get all users.
+Get all users
 
->POST /api/User - Create a new user.
+>GET /api/User
 
->GET /api/User/{userId} - Get a specific user.
+Create a new user
 
->PUT /api/User/{userId} - Update a user.
+>POST /api/User
 
->DELETE /api/User/{userId} - Delete a user.
+Get a specific user
 
->GET /api/User/{userId}/resumes - Get user's resumes.
+>GET /api/User/{userId}
+
+Update a user
+
+>PUT /api/User/{userId}
+
+Delete a user
+
+>DELETE /api/User/{userId}
+
+Get user's resumes
+
+>GET /api/User/{userId}/resumes
 
 ### Resume
 Resume DTO
@@ -81,7 +93,48 @@ lastModifiedTime	string($date-time)
 
 >GET /api/Resume/{resumeId}/experiences - Get resume's experiences.
 
+### Template
+Template DTO
+```
+{
+languageId	integer($int32)
+languageName	string
+nullable: true
+level	string
+nullable: true
+}
+```
+Get all templates
 
+>GET /api/Template
+
+Create a new template
+
+>POST /api/Template
+
+Get a specific template
+
+>GET /api/Template/{templateId}
+
+Update a template
+
+>PUT /api/Template/{templateId}
+
+Delete a template
+
+>DELETE /api/Template/{templateId}
+
+Get resumes using a template
+
+>GET /api/Template/{templateId}/resumes
+
+Associate a template with a resume
+
+>POST /api/Template/{templateId}&&{resumeId}
+
+Remove association between a template and a resume
+
+>DELETE /api/Template/{templateId}&&{resumeId}
 
 
 
