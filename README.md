@@ -32,6 +32,7 @@ nullable: true
 ```
 Get all users
 >https://localhost:port/api/User
-> curl -X 'GET' \
+``` curl -X 'GET' \
   'https://localhost:7142/api/User' \
   -H 'accept: text/plain'
+```
