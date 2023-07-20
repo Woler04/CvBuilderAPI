@@ -2,7 +2,7 @@
 This repository contains an API(Application programming interface) for our project Curriculum Vitae (Builder) 
 made for AIBEST Academy 2023
 
-##Set up
+## Set up
 Unfortunately, our API is not hosted anywhere so it has to be run locally to be used
 After downloading or cloning and opening the solution you need to
 
