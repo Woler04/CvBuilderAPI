@@ -32,27 +32,27 @@ nullable: true
 ```
 Get all users
 
->GET /api/User
+GET /api/User
 
 Create a new user
 
->POST /api/User
+POST /api/User
 
 Get a specific user
 
->GET /api/User/{userId}
+GET /api/User/{userId}
 
-Update a user
+Update a specific user
 
->PUT /api/User/{userId}
+PUT /api/User/{userId}
 
-Delete a user
+Delete a specific user
 
->DELETE /api/User/{userId}
+DELETE /api/User/{userId}
 
-Get user's resumes
+Get resumes associated with a user
 
->GET /api/User/{userId}/resumes
+GET /api/User/{userId}/resumes
 
 ### Resume
 Resume DTO
