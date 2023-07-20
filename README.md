@@ -121,6 +121,155 @@ Get resume's experiences
 
 GET /api/Resume/{resumeId}/experiences
 
+### Personal Info
+Personal Info DTO
+```
+{
+personalinfoId	integer($int32)
+fullName	string
+nullable: true
+address	string
+nullable: true
+phoneNumber	string
+nullable: true
+email	string
+nullable: true
+}
+```
+Get all personal info
+
+GET /api/PersonalInfo
+
+Create new personal info
+
+POST /api/PersonalInfo
+
+Get specific personal info
+
+GET /api/PersonalInfo/{personalInfoId}
+
+Update specific personal info
+
+PUT /api/PersonalInfo/{personalInfoId}
+
+Delete specific personal info
+
+DELETE /api/PersonalInfo/{personalInfoId}
+
+Update personal info for a resume
+
+PUT /api/PersonalInfo/{resumeId}
+
+
+### Experience
+Experience DTO
+```
+{
+experienceId	integer($int32)
+companyName	string
+nullable: true
+position	string
+nullable: true
+startDate	string($date-time)
+endDate	string($date-time)
+description	string
+nullable: true
+}
+```
+Get all experiences
+
+GET /api/Experience
+
+Create a new experience
+
+POST /api/Experience
+
+Get a specific experience
+
+GET /api/Experience/{experienceId}
+
+Update a specific experience
+
+PUT /api/Experience/{experienceId}
+
+Delete a specific experience
+
+DELETE /api/Experience/{experienceId}
+
+### Education
+Education DTO
+```
+{
+educationId	integer($int32)
+institutionName	string
+nullable: true
+degree	string
+nullable: true
+fieldOfStudy	string
+nullable: true
+startDate	string($date-time)
+endDate	string($date-time)
+}
+```
+Get all educations
+
+GET /api/Education
+
+Create a new education
+
+POST /api/Education
+
+Get a specific education
+
+GET /api/Education/{educationId}
+
+Update a specific education
+
+PUT /api/Education/{educationId}
+
+Delete a specific education
+
+DELETE /api/Education/{educationId}
+
+### Certificate 
+Certificate DTO
+```
+{
+certificateId	integer($int32)
+certificateName	string
+nullable: true
+issuingOrganization	string
+nullable: true
+issueDate	string($date-time)
+}
+```
+
+Get all certificates
+
+GET /api/Certificate
+
+Create a new certificate
+
+POST /api/Certificate
+
+Get a specific certificate
+
+GET /api/Certificate/{certificateId}
+
+Update a specific certificate
+
+PUT /api/Certificate/{certificateId}
+
+Search for certificates using a keyword
+
+GET /api/Certificate/search/{keyword}
+
+Delete a specific certificate
+
+DELETE /api/Certificate/{certificateId}
+
+## Those are with dynamic joined tables so there are special endpoints for associating
+
 ### Template
 Template DTO
 ```
@@ -205,36 +354,19 @@ Remove association between a skill and a resume
 
 DELETE /api/Skill/{skillId}&&{resumeId}
 
-### Personal Info
-Personal Info DTO
-
-Get all personal info
-
-GET /api/PersonalInfo
-
-Create new personal info
-
-POST /api/PersonalInfo
-
-Get specific personal info
-
-GET /api/PersonalInfo/{personalInfoId}
-
-Update specific personal info
-
-PUT /api/PersonalInfo/{personalInfoId}
-
-Delete specific personal info
-
-DELETE /api/PersonalInfo/{personalInfoId}
-
-Update personal info for a resume
-
-PUT /api/PersonalInfo/{resumeId}
-
 ### Location
 Get all locations
-
+```
+{
+locationId	integer($int32)
+city	string
+nullable: true
+state	string
+nullable: true
+country	string
+nullable: true
+}
+```
 GET /api/Location
 
 Create a new location
@@ -271,7 +403,15 @@ DELETE /api/Location/{locationId}&&{resumeId}
 
 ### Language
 Language DTO
-
+```
+{
+languageId	integer($int32)
+languageName	string
+nullable: true
+level	string
+nullable: true
+}
+```
 Get all languages
 
 GET /api/Language
@@ -303,79 +443,6 @@ POST /api/Language/{languageId}&&{resumeId}
 Remove association between a language and a resume
 
 DELETE /api/Language/{languageId}&&{resumeId}
-
-### Experience
-Experience DTO
-
-Get all experiences
-
-GET /api/Experience
-
-Create a new experience
-
-POST /api/Experience
-
-Get a specific experience
-
-GET /api/Experience/{experienceId}
-
-Update a specific experience
-
-PUT /api/Experience/{experienceId}
-
-Delete a specific experience
-
-DELETE /api/Experience/{experienceId}
-
-### Education
-Education DTO
-
-Get all educations
-
-GET /api/Education
-
-Create a new education
-
-POST /api/Education
-
-Get a specific education
-
-GET /api/Education/{educationId}
-
-Update a specific education
-
-PUT /api/Education/{educationId}
-
-Delete a specific education
-
-DELETE /api/Education/{educationId}
-
-### Certificate 
-Certificate DTo
-
-Get all certificates
-
-GET /api/Certificate
-
-Create a new certificate
-
-POST /api/Certificate
-
-Get a specific certificate
-
-GET /api/Certificate/{certificateId}
-
-Update a specific certificate
-
-PUT /api/Certificate/{certificateId}
-
-Search for certificates using a keyword
-
-GET /api/Certificate/search/{keyword}
-
-Delete a specific certificate
-
-DELETE /api/Certificate/{certificateId}
 
 
 
