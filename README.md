@@ -16,5 +16,22 @@ After downloading or cloning and opening the solution you need to
 2. Then run the "update-database" command in the Package Manager Console so the migrations be applied
 3. There is no seed for the database BUT that is an excellent opportunity to try reaching an endpoint
 
-## [End Points]((docs/README.md))
+## End Points
 ### User
+User DTO(data transfer object)(can become easy JSON)
+```
+{
+id	integer($int32)
+username	string
+nullable: true
+email	string
+nullable: true
+password	string
+nullable: true
+}
+```
+Get all users
+>https://localhost:port/api/User
+> curl -X 'GET' \
+  'https://localhost:7142/api/User' \
+  -H 'accept: text/plain'
