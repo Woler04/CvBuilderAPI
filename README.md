@@ -65,33 +65,61 @@ creationTime	string($date-time)
 lastModifiedTime	string($date-time)
 }
 ```
->GET /api/Resume - Get all resumes.
+Get all resumes
 
->POST /api/Resume - Create a new resume.
+GET /api/Resume
 
->GET /api/Resume/{resumeId} - Get a specific resume.
+Create a new resume
 
->PUT /api/Resume/{resumeId} - Update a resume.
+POST /api/Resume
 
->DELETE /api/Resume/{resumeId} - Delete a resume.
+Get a specific resume
 
->GET /api/Resume/{resumeId}/user - Get resume's associated user.
+GET /api/Resume/{resumeId}
 
->GET /api/Resume/{resumeId}/skills - Get resume's skills.
+Update a resume
 
->GET /api/Resume/{resumeId}/template - Get resume's template.
+PUT /api/Resume/{resumeId}
 
->GET /api/Resume/{resumeId}/locations - Get resume's locations.
+Delete a resume
 
->GET /api/Resume/{resumeId}/languages - Get resume's languages.
+DELETE /api/Resume/{resumeId}
 
->GET /api/Resume/{resumeId}/certificates - Get resume's certificates.
+Get resume's associated user
 
->GET /api/Resume/{resumeId}/personalInfo - Get resume's personal info.
+GET /api/Resume/{resumeId}/user
 
->GET /api/Resume/{resumeId}/educations - Get resume's educations.
+Get resume's skills
 
->GET /api/Resume/{resumeId}/experiences - Get resume's experiences.
+GET /api/Resume/{resumeId}/skills
+
+Get resume's template
+
+GET /api/Resume/{resumeId}/template
+
+Get resume's locations
+
+GET /api/Resume/{resumeId}/locations
+
+Get resume's languages
+
+GET /api/Resume/{resumeId}/languages
+
+Get resume's certificates
+
+GET /api/Resume/{resumeId}/certificates
+
+Get resume's personal info
+
+GET /api/Resume/{resumeId}/personalInfo
+
+Get resume's educations
+
+GET /api/Resume/{resumeId}/educations
+
+Get resume's experiences
+
+GET /api/Resume/{resumeId}/experiences
 
 ### Template
 Template DTO
@@ -106,38 +134,76 @@ nullable: true
 ```
 Get all templates
 
->GET /api/Template
+GET /api/Template
 
 Create a new template
 
->POST /api/Template
+POST /api/Template
 
 Get a specific template
 
->GET /api/Template/{templateId}
+GET /api/Template/{templateId}
 
 Update a template
 
->PUT /api/Template/{templateId}
+PUT /api/Template/{templateId}
 
 Delete a template
 
->DELETE /api/Template/{templateId}
+DELETE /api/Template/{templateId}
 
 Get resumes using a template
 
->GET /api/Template/{templateId}/resumes
+GET /api/Template/{templateId}/resumes
 
 Associate a template with a resume
 
->POST /api/Template/{templateId}&&{resumeId}
+POST /api/Template/{templateId}&&{resumeId}
 
 Remove association between a template and a resume
 
->DELETE /api/Template/{templateId}&&{resumeId}
+DELETE /api/Template/{templateId}&&{resumeId}
 
+### Skill
+Skill DTO
+```
+{
+skillId	integer($int32)
+skillName	string
+nullable: true
+}
+```
+Get all skills
 
+GET /api/Skill
 
+Create a new skill
+
+POST /api/Skill
+
+Get a specific skill
+
+GET /api/Skill/{skillId}
+
+Update a skill
+
+PUT /api/Skill/{skillId}
+
+Delete a skill
+
+DELETE /api/Skill/{skillId}
+
+Get resumes associated with a skill
+
+GET /api/Skill/{skillId}/resumes
+
+Associate a skill with a resume
+
+POST /api/Skill/{skillId}&&{resumeId}
+
+Remove association between a skill and a resume
+
+DELETE /api/Skill/{skillId}&&{resumeId}
 
 
 
